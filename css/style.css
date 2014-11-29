@@ -5,13 +5,23 @@
   src: url("fonts/BreeSerif-Regular.otf");
 }
   /* flexbox align whole element in the page centered. You could control the perperty by every section's   padding-top property. default is 150px. */
-.vertical-center {
+.vertical-center  {
   min-height: 100%;
-  /* Fallback for browsers do NOT support vh unit */
   min-height: 100vh;
-  /* These two lines are counted as one :-)       */
+  display: -ms-Flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
   display: flex;
   align-items: center;
+}
+
+.verticalcenter{
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
 }
 
 /*nav property*/
@@ -78,8 +88,9 @@
   color: #fff;
 }
 .intro-section {
-  padding-top: 0;
+  padding-top: 0px;
 }
+
 
 
 /*about property*/
@@ -87,30 +98,12 @@
 .about-section {
   background-color: #2e5e60;
   padding-top: 125px;
-}
-  /* about section is layouted by flexbox */
-#about .flex-container {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  justify-content: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-#about .leftcolumn {
-  width: 340px;
-  padding: 0 10px;
-}
-#about .rightcolumn {
-  width: 340px;
-  padding: 0 10px;
-}
+} 
 blockquote {
   border-left: 0;
+}
+#about figure {
+  margin-top: 20%;
 }
 #about img {
   max-width: 60%;
@@ -139,7 +132,7 @@ blockquote {
   color: rgba(255, 255, 255, 0.85);
 }
 .about-section {
-  padding-top: 0;
+  padding-top: 0px;
 }
 
 
@@ -154,6 +147,12 @@ blockquote {
 .skill-section {
   padding-top: 100px;
 }
+#skill .barcenter {
+  float: none;
+  display: block;
+  margin: 0 auto;
+}
+
 #skill h4 {
   font-size: 2.5rem;
   font-weight: bold;
@@ -278,36 +277,41 @@ blockquote {
 
 
 
-/*meida query*/
+/*media query*/
 
-@media (min-width: 482px) and (max-width: 768px) {
-  #about .flex-container {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: column nowrap;
-    flex-flow: column nowrap;
-    justify-content: center;
-    -ms-align-items: center;
-    align-items: center;
+@media screen and (min-width: 481px) and (max-width: 992px) {
+  #about .container {
+    width: 100%;
   }
   #about .leftcolumn {
+    display: block;
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+  #about figure {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+  }
+  #about .rightcolumn {
+    display: block;
+    float: none;
+    padding: 10px 20px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  #about article {
     width: 45%;
-    padding: 0 10px;
-    margin-bottom: 15px;
-  }
-  #about .rightcolumn {
-    width: 60%;
-    padding: 0 10px;
-    margin-top: 15px;
+    float: none;
+    display: block;
+    margin: 0 auto;
   }
   blockquote {
     border-left: 0;
   }
   #about img {
-    max-width: 60%;
+    max-width: 45%;
     display: block;
     margin: 0 auto;
     -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
@@ -315,154 +319,40 @@ blockquote {
     box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
   }
   #about h2 {
-    font-size: 1.7em;
+    font-size: 2.2em;
     font-family: "BreeSerif-Regular";
     font-weight: bold;
     color: rgba(203, 161, 139, 0.85);
   }
   #about .content p {
     font-family: "BreeSerif-Regular";
-    font-size: 1.5rem;
-    text-align: justify;
-    color: rgba(255, 255, 255, 0.69);
-  }
-  #about .content p span {
-    color: rgba(247, 130, 68, 0.9);
-  }
-  #about blockquote p {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.85);
-  }
-  .about-section {
-    padding-top: 0px;
-  }
-}
-
-
-@media (min-width: 481px) and (max-width: 736px) {
-  .about-section {
-    padding-top: 0;
-  }
-  #about .flex-container {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-    justify-content: center;
-    -ms-align-items: center;
-    align-items: center;
-  }
-  #about .leftcolumn {
-    width: 30%;
-    padding: 0 10px;
-    -webkit-order: 2;
-    -moz-order: 2;
-    -ms-order: 2;
-    -o-order: 2;
-    order: 2;
-    align-self: flex-end;
-  }
-  #about .rightcolumn {
-    width: 60%;
-    padding: 0 10px;
-  }
-  blockquote {
-    border-left: 0;
-  }
-  #about img {
-    max-width: 60%;
-    display: block;
-    margin: 0 auto;
-    -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
-  }
-  #about h2 {
-    font-size: 1.7em;
-    font-family: "BreeSerif-Regular";
-    font-weight: bold;
-    color: rgba(203, 161, 139, 0.85);
-  }
-  #about .content p {
-    font-family: "BreeSerif-Regular";
-    font-size: 1.5rem;
-    text-align: justify;
-    color: rgba(255, 255, 255, 0.69);
-  }
-  #about .content p span {
-    color: rgba(247, 130, 68, 0.9);
-  }
-  #about blockquote p {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.85);
-  }
-  .about-section {
-    padding-top: 45px;
-  }
-  #about .leftcolumn {
-    align-self: flex-end;
-    padding-left: 0px;
-  }
-  .skill-section {
-    padding-top: 0px;
-  }
-  #skill .container {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-  #skill .progress {
-    height: 13px;
-    margin-bottom: 0px;
-  }
-  #skill .progress-bar {
-    font-size: 10px;
-    line-height: 17px;
-  }
-  #skill h4 {
     font-size: 1.8rem;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 50px;
+    text-align: justify;
+    color: rgba(255, 255, 255, 0.69);
   }
-  #skill .choice h5 {
-    font-size: 1.2rem;
-    text-align: left;
-    color: #fff;
-    padding: 0px;
-    margin: 0px;
+  #about .content p span {
+    color: rgba(247, 130, 68, 0.9);
+  }
+  #about blockquote p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .about-section {
+    padding-top: 0px;
   }
   #skill img {
     max-width: 75%;
-    margin: 0 auto;
-  }
-  #skill .skillitemrow {
-    position: relative;
-    margin-top: 4.5%;
   }
   #skill .choice {
     position: absolute;
-    top: -8%;
+    top: -13%;
     left: 25%;
-  }
-  #contact h2 {
-    font-size: 5rem;
-  }
-  #contact p {
-    font-size: 1.2rem;
-  }
-  #contact .social-info {
-    margin-top: 4.3%;
-  }
-  .contact-section {
-    padding-top: 90px;
-  }
+}
+  
 }
 
 
-@media (min-width: 321px) and (max-width: 480px) {
+@media screen and (min-width: 321px) and (max-width: 480px) {
   
   /*intro secton*/
   
@@ -479,34 +369,43 @@ blockquote {
   #intro .direction {
     left: 44%
   }
-  .about-section {
-    padding-top: 0;
+  .intro-section {
+    padding-top: 0px;
   }
+  
   
   /*about section*/
   
-  #about .flex-container {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: column nowrap;
-    flex-flow: column nowrap;
-    justify-content: center;
-    -ms-align-items: center;
-    align-items: center;
+ #about .container {
+    width: 100%;
   }
   #about .leftcolumn {
-    width: 340px;
-    padding: 0 10px;
+    display: block;
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+  #about figure {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
   }
   #about .rightcolumn {
-    width: 340px;
-    padding: 0 10px;
+    display: block;
+    float: none;
+    padding: 10px 20px;
+    width: 100%;
+    margin: 0 auto;
   }
+  #about article {
+    width: 75%;
+    float: none;
+    display: block;
+    margin: 0 auto;
+  }
+  
   #about img {
-    max-width: 25%;
+    max-width: 40%;
     display: block;
     margin: 0 auto;
     -webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.75);
@@ -526,13 +425,14 @@ blockquote {
     color: rgba(255, 255, 255, 0.69);
   }
   #about blockquote p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: rgba(255, 255, 255, 0.85);
   }
   #about blockquote {
     margin-bottom: 0px;
     padding-bottom: 0px;
   }
+  
   
   /*skill section*/
   
@@ -542,6 +442,10 @@ blockquote {
   #skill .container {
     padding-left: 30px;
     padding-right: 30px;
+  }
+  #skill .choice {
+    padding-left: 0px;
+    width: 65%;
   }
   #skill .progress {
     height: 13px;
@@ -570,7 +474,7 @@ blockquote {
   }
   #skill .skillitemrow {
     position: relative;
-    margin-top: 4.5%;
+    margin-top: 7.5%;
   }
   #skill .choice {
     position: absolute;
@@ -584,7 +488,7 @@ blockquote {
     font-size: 4rem;
   }
   #contact p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   #contact .social-info {
     margin-top: 4.3%;
@@ -592,18 +496,18 @@ blockquote {
 }
 
 
-@media (max-width: 320px) {
+@media screen and (max-width: 320px) {
   
   /*intro section*/
   
   #intro h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   #intro h2 {
     font-size: 1rem;
   }
   #intro header h2 span {
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-shadow: 1.5px 1.5px 2px rgba(255, 255, 255, 0.7);
   }
   #intro .direction {
@@ -612,31 +516,37 @@ blockquote {
   
   /*about section*/
   
-  .about-section {
-    padding-top: 50px;
-  }
-  #about .flex-container {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: column nowrap;
-    flex-flow: column nowrap;
-    justify-content: center;
-    -ms-align-items: center;
-    align-items: center;
+  
+  #about .container {
+    width: 100%;
   }
   #about .leftcolumn {
+    display: block;
+    float: none;
     width: 100%;
-    padding: 0 10px;
+    margin: 0 auto;
+  }
+  #about figure {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
   }
   #about .rightcolumn {
-    width: 90%;
-    padding: 0 10px;
+    display: block;
+    float: none;
+    padding: 10px 20px;
+    width: 100%;
+    margin: 0 auto;
   }
+  #about article {
+    width: 75%;
+    float: none;
+    display: block;
+    margin: 0 auto;
+  }
+  
   #about img {
-    max-width: 25%;
+    max-width: 40%;
     display: block;
     margin: 0 auto;
     -webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.75);
@@ -645,23 +555,26 @@ blockquote {
   }
   #about h2 {
     font-family: "BreeSerif-Regular";
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: rgba(203, 161, 139, 0.85);
   }
   #about .content p {
     font-family: "BreeSerif-Regular";
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-align: justify;
     color: rgba(255, 255, 255, 0.69);
   }
   #about blockquote p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.85);
   }
   #about blockquote {
     margin-bottom: 0px;
     padding-bottom: 0px;
+  }
+  .about-section {
+    padding-top: 50px;
   }
   
   /*skill section*/
@@ -669,23 +582,23 @@ blockquote {
   .skill-section {
     padding-top: 50px;
   }
-  #skill .container {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
+  
   #skill .progress {
     height: 13px;
     margin-bottom: 0px;
+    width: 90%;
   }
   #skill .progress-bar {
     font-size: 10px;
     line-height: 17px;
   }
   #skill h4 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #fff;
     margin-bottom: 25px;
+    text-align: left;
+    padding-left: 10px;
   }
   #skill .choice h5 {
     font-size: 1.2rem;
@@ -700,15 +613,15 @@ blockquote {
   }
   #skill .skillitemrow {
     position: relative;
-    margin-top: 4.5%;
+    margin-top: 7.5%;
   }
   #skill .choice {
     position: absolute;
-    top: -8%;
+    top: 4%;
     left: 25%;
   }
   
-  /*contact section*/
+/*  contact section*/
   
   #contact h2 {
     font-size: 3.5rem;
